@@ -1,0 +1,1 @@
+# K8s Manifest for Tutorial crud
