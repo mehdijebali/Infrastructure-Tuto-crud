@@ -6,7 +6,5 @@ metadata:
     app: front
 spec:
   containers:
-  - name: front-app
-    image: mehdijebali/crud-front:1.5
-
-
+    - name: front-app
+      image: mehdijebali/crud-front:1.5
