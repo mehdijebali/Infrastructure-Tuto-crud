@@ -3,8 +3,15 @@ kind: Pod
 metadata:
   name: front-pod
   labels:
-    app: front
+    app: front-pod
 spec:
   containers:
     - name: front-app
       image: mehdijebali/crud-front:1.5
+      resources:
+        limits:
+          memory: 512Mi
+          cpu: "1"
+        requests:
+          memory: 256Mi
+          cpu: "0.2"
