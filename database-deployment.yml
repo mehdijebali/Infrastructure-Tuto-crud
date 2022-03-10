@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: database-deployment
+  labels:
+    app: database-deployment 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: database-pod
+  template:
+    metadata:
+      labels:
+        app: database-pod
