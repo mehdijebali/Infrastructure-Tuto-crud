@@ -8,8 +8,25 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: back-pod
+      app: back-app
   template:
     metadata:
       labels:
-        app: back-pod
+        app: back-app
+    spec:
+      containers:
+      - name: back-app
+        image: mehdijebali/crud-back:1.3.1
+        env:
+        - name: DATABASE_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: back-configmap
+              key: databasehost
+        resources:
+          limits:
+            memory: 512Mi
+            cpu: "1"
+          requests:
+            memory: 256Mi
+            cpu: "0.2"

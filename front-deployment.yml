@@ -8,8 +8,19 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: front-pod
+      app: front-app
   template:
     metadata:
       labels:
-        app: front-pod
+        app: front-app
+    spec:
+      containers:
+      - name: front-app
+        image: mehdijebali/crud-front:1.5.1
+        resources:
+          limits:
+            memory: 512Mi
+            cpu: "1"
+          requests:
+            memory: 256Mi
+            cpu: "0.2" 

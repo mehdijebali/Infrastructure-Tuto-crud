@@ -5,8 +5,9 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: front-pod
+    app: front-app
   ports:
   - port: 4200
     targetPort: 4200
-    NodePort: 30100
+    nodePort: 30100
+    protocol: TCP

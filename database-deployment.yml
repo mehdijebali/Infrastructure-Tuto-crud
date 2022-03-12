@@ -8,8 +8,40 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: database-pod
+      app: database-app
   template:
     metadata:
       labels:
-        app: database-pod
+        app: database-app
+    spec:
+      containers:
+    - name: mysql-container
+      image: mysql:latest
+      env:
+      - name: MYSQL_DATABASE
+        valueFrom:
+          configMapKeyRef:
+            name: database-configmap
+            key: database
+      - name: MYSQL_USER
+        valueFrom:
+          configMapKeyRef:
+            name: database-configmap
+            key: user
+      - name: MYSQL_ROOT_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: database-secret
+            key: rootpassword 
+      - name: MYSQL_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: database-secret
+            key: dbpassword 
+      resources:
+        limits:
+          memory: 512Mi
+          cpu: "1"
+        requests:
+          memory: 256Mi
+          cpu: "0.2"
