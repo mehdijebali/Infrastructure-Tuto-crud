@@ -8,19 +8,16 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: front-app
+      app: front-deployment
   template:
     metadata:
       labels:
-        app: front-app
+        app: front-deployment
     spec:
       containers:
-      - name: front-app
-        image: mehdijebali/crud-front:1.5.1
-        resources:
-          limits:
-            memory: 512Mi
-            cpu: "1"
-          requests:
-            memory: 256Mi
-            cpu: "0.2" 
+      - name: front-deployment
+        image: mehdijebali/crud-front:1.5.4
+        ports:
+          - name: http-front
+            containerPort: 80
+      

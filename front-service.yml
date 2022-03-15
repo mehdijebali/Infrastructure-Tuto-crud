@@ -5,9 +5,9 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: front-app
+    app: front-deployment
   ports:
-  - port: 4200
-    targetPort: 4200
+  - port: 80
+    targetPort: http-front
     nodePort: 30100
     protocol: TCP
