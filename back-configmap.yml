@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: back-configmap
 data:
-  databasehost: database-pod
+  databasehost: database-service
   
