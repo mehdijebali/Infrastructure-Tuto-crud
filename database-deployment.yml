@@ -38,4 +38,11 @@ spec:
             secretKeyRef:
               name: database-secret
               key: dbpassword 
+        volumeMounts:
+        - name: database-persistent-storage
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: database-persistent-storage
+        persistentVolumeClaim:
+          claimName: database-pv-claim
                                                             
